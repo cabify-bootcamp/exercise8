@@ -7,6 +7,7 @@ const { Validator, ValidationError } = require("express-json-validator-middlewar
 const { queueCreditCheck }  = require("./controllers/queueCredit");
 const service_port = process.env.SERVICE_PORT || 9007
 const getMessages = require("./controllers/getMessages");
+const getHealth = require("./controllers/getHealth");
 const getMessageStatus = require("./controllers/getMessageStatus");
 
 require("./controllers/queueTx");
@@ -45,6 +46,8 @@ app.post(
 );
 
 app.get("/messages", getMessages);
+
+app.get("/health", getHealth);
 
 app.get("/messages/:messageId/status", getMessageStatus);
 

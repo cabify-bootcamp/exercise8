@@ -6,8 +6,7 @@ const { queueTx } = require("../controllers/queueTx");
 module.exports = function(messageParams, cb) {
   const MessageModel = Message();
   let message = new MessageModel(messageParams);
-  
-  console.log(messageParams)
+
 
   if (message.status == "OK") {
 

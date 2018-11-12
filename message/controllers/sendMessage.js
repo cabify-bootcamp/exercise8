@@ -10,7 +10,7 @@ module.exports = function(message, credit) {
   let current_credit = credit
 
     if (current_credit > 0) {
-      console.log(credit, 'entra')
+      
       const postOptions = {
         // host: "exercise4_messageapp_1",
         host: "messageapp",
