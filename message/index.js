@@ -1,8 +1,11 @@
+require('dotenv').config();
+
 const http = require("http");
 const express = require("express");
 const bodyParser = require("body-parser");
 const { Validator, ValidationError } = require("express-json-validator-middleware");
 const { queueCreditCheck }  = require("./controllers/queueCredit");
+const service_port = process.env.SERVICE_PORT || 9007
 const getMessages = require("./controllers/getMessages");
 const getMessageStatus = require("./controllers/getMessageStatus");
 
@@ -55,6 +58,6 @@ app.use(function(err, req, res, next) {
 });
 
 
-app.listen(9007, function() {
-  console.log("App started on PORT 9007");
+app.listen(service_port, function() {
+  console.log(`App started on PORT ${service_port}`);
 });

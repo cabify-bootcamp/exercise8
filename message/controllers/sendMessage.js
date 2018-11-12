@@ -6,14 +6,15 @@ const random = n => Math.floor(Math.random() * Math.floor(n));
 module.exports = function(message, credit) {
   const messageContent = message
   const messageJSON = JSON.stringify(message);
-
-    current_credit = credit
+  
+  let current_credit = credit
 
     if (current_credit > 0) {
+      console.log(credit, 'entra')
       const postOptions = {
         // host: "exercise4_messageapp_1",
-        // host: "messageapp",
-        host: "localhost",
+        host: "messageapp",
+        // host: "localhost",
         port: 3000,
         path: "/message",
         method: "post",
@@ -74,10 +75,23 @@ module.exports = function(message, credit) {
         );
       });
 
-      postReq.on("error", () => {});
+      postReq.on("error", () => {
+        console.error("Error while sending message");
+        // updateMessage
+        saveMessage(
+          {
+            ...messageContent,
+            status: "ERROR"
+          },
+          () => {
+            console.log("Internal server error: SERVICE ERROR")
+          }
+        );
+      });
 
       postReq.write(messageJSON);
       postReq.end();
+      
     } else {
       console.log("No credit error")
     }

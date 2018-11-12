@@ -32,6 +32,7 @@ function queueCreditCheck(req, res, next) {
 }
 
 creditCheckResponseQueue.process(async (job, done) => {
+    console.log(job.data)
     sendMessage(job.data.messageParams, job.data.credit)
     done(null, 'done')
 })
