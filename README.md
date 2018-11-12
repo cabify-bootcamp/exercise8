@@ -4,14 +4,14 @@
 
 Incrementar la capacidad del sistema para permitir una mayor carga de peticiones, al igual que reducir _downtime_ eliminando elementos críticos, es importante a la hora de incrementar la disponibilidad de nuestro sistema.
 
-### 1 - Añadiendo redundancia
+### 1 - Añadiendo redundancia
 
 Para evitar puntos únicos de fallo en nuestro sistema, configúralo para arrancar múltiples instancias de la aplicación.
 
 - Modifica y configura la topología de tu sistema para arrancar múltiples instancias.
 - Asegúrate de que puedas acceder a todas ellas de forma individual.
 
-### 2 - Balancear la carga
+### 2 - Balancear la carga
 
 Una vez contemos con múltiples instancias para enviar peticiones, necesitaremos de un punto de entrada al sistema que distribuya la carga de forma equitativa entre las múltiples instancias configuradas en el punto anterior.
 
